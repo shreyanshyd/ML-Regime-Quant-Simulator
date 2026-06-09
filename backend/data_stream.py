@@ -35,6 +35,18 @@ def download_market_data():
     sim_data.to_csv(sim_path)
     print(f"Saved simulation data to {sim_path}")
 
-
 if __name__ == "__main__":
     download_market_data()
+
+# Additional code to load the CSV directly onto the memory
+import os
+import pandas as pd
+
+def load_local_data(filepath="data/historical_training_data.csv"):
+    if not os.path.exists(filepath):
+        print(f"Error: Could not find {filepath}")
+        return None
+
+    # Reads the CSV, making sure the dates are treated as actual Datetime objects
+    df = pd.read_csv(filepath, index_col=0, parse_dates=True)
+    return df
