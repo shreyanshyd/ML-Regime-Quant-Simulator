@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 print("🧠 Starting ML Regime Clustering Pipeline...")
 
 # 1. LOAD HISTORICAL TRAINING DATA (2010 - 2024)
-csv_path = "data/training_data.csv"
+csv_path = "data/historical_training_data.csv"
 if not os.path.exists(csv_path):
     raise FileNotFoundError(f"Missing {csv_path}. Ensure your training data is inside the data/ folder.")
 
@@ -69,6 +69,6 @@ for i in range(model.n_components):
     print(f"  Regime {i}: Mean Daily Return = {mean_return:+.4f}%, Mean Volatility = {mean_vol:.4f}%")
 
 # 5. EXPORT TRAINED BRAIN FOR INFERENCE OVERLAY
-model_output_path = "ml_engine/regime_hmm_model.pkl"
+model_output_path = "data/regime_hmm_model.pkl"
 joblib.dump(model, model_output_path)
 print(f"\n💾 Model successfully saved to {model_output_path}!")

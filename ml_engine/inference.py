@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 class RegimeInferenceEngine:
-    def __init__(self, model_path="ml_engine/regime_hmm_model.pkl"):
+    def __init__(self, model_path="data/regime_hmm_model.pkl"):
         """Loads the pre-trained Hidden Markov Model into memory."""
         self.model = joblib.load(model_path)
         
